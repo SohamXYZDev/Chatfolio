@@ -28,7 +28,8 @@ input {
 }
   
   .chatbox {
-    background: rgba(10, 15, 28, 0.9);
+    background: #000612;
+    opacity: 0.9;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
