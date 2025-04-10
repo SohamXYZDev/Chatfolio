@@ -7,10 +7,21 @@
     src: url('./assets/Barlow-Light.otf') format('opentype');
 }
 
+@keyframes borderAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: radial-gradient(ellipse at center, #0a0f1c, #000);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -27,18 +38,43 @@ input {
     padding: 0;
 }
   
-  .chatbox {
-    background: #000612;
-    opacity: 0.9;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 0 30px #7a00ff, 0 0 60px #007aff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 400px;
-    width: 90%;
-    backdrop-filter: blur(10px);
-  }
+.chatbox {
+  position: relative;
+  background: #000612;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  padding: 40px;
+  border-radius: 20px;
+  color: white;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Animated border with glowing effect */
+.chatbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #00bfff,#00bfff, #ff00ff, #4d00ff);
+  background-size: 300% 300%; /* bigger so we can shift it */
+  background-position: 0% 50%;
+  animation: borderAnimation 7s linear infinite;
+
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  z-index: -1;
+}
+
   
   #heading {
     font-family: "Barlow Light", sans-serif, monospace;
