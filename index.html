@@ -7,16 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="chatbox">
-    <h1 id="heading">What are you?</h1>
-    <div id="input-field">
-        <input type="text" placeholder="Type a message..." id="userInput">
-        <div class="button-row">
-            <button onclick="sendQuick('What are you?')">What are you?</button>
-            <button onclick="sendQuick('Show me your work')">Show me your work</button>
-        </div>
+  <!-- ...existing code... -->
+<div class="card">
+  <h1 id="heading">Hello there, let's talk.</h1>
+  <div id="messages" class="hidden">
+
+  </div>
+  <div id="input-field">
+    <input type="text" placeholder="Type a message..." id="userInput">
+    <div class="button-row">
+      <button onclick="sendQuick('What are you?')">What are you?</button>
+      <button onclick="sendQuick('Show me your work')">Show me your work</button>
     </div>
   </div>
+</div>
+<!-- ...existing code... -->
 
   <script src="script.js"></script>
 </body>
