@@ -1,17 +1,31 @@
+@font-face {
+    font-family: 'Barlow Light';
+    src: url('./assets/Barlow-ExtraLight.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Barlow';
+    src: url('./assets/Barlow-Light.otf') format('opentype');
+}
+
 body {
     margin: 0;
     padding: 0;
     background: radial-gradient(ellipse at center, #0a0f1c, #000);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 400;
     color: white;
     background-image: url('./assets/bg.jpg');
     background-size: cover;
     background-position: center;
   }
+
+input {
+    margin: 0;
+    padding: 0;
+}
   
   .chatbox {
     background: rgba(10, 15, 28, 0.9);
@@ -25,19 +39,24 @@ body {
     backdrop-filter: blur(10px);
   }
   
-  .chatbox h1 {
-    margin-bottom: 20px;
-  }
+  #heading {
+    font-family: "Barlow Light", sans-serif, monospace;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+}
+
+
   
   .chatbox input {
-    width: 100%;
+    font-family: "Barlow", sans-serif, monospace;
+    width: 95%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
     padding: 12px;
-    border: none;
     border-radius: 10px;
     margin-bottom: 20px;
     font-size: 16px;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.05);
     color: white;
   }
   
@@ -48,9 +67,10 @@ body {
   }
   
   .button-row button {
+    font-family: "Barlow", sans-serif, monospace;
     flex: 1;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.07);
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     color: white;
