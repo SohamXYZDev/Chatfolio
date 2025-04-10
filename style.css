@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center, #0a0f1c, #000);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: url('./assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .chatbox {
+    background: rgba(10, 15, 28, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 30px #7a00ff, 0 0 60px #007aff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    width: 90%;
+    backdrop-filter: blur(10px);
+  }
+  
+  .chatbox h1 {
+    margin-bottom: 20px;
+  }
+  
+  .chatbox input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .button-row button {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .button-row button:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
