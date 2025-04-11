@@ -48,10 +48,6 @@ Chatfolio is an interactive portfolio website that uses a chat interface to show
   - Type `Show me your work` to see a showcase of projects.
   - Ask questions about the portfolio or projects to receive AI-powered responses.
 
-- **Image Viewer**:
-  - Click on project images to view them in full size.
-  - Use the navigation buttons to cycle through images.
-
 ## Technologies Used
 
 ### Frontend
