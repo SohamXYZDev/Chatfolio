@@ -39,13 +39,18 @@ function sendMessage() {
                 appendImage("./assets/past-work/CollabNoteLanding.png" ,  imageContainer);
             }
             , 2000);
+        } else {
+            response_from_func = geminiResponse(message)
+            setTimeout(() => {
+                response_from_func.then((response) => {
+                    appendMessage(response, 'bot'); 
+                });
+            }, 2000);
         }
-        geminiResponse(message)
     }
 }
 
 async function geminiResponse(message) {
-    // send message
     try {
         const response = await fetch("http://localhost:3000/generate-tags", {
             method: "POST",
@@ -55,11 +60,17 @@ async function geminiResponse(message) {
             body: JSON.stringify({ message }),
         });
 
+        // Parse the JSON response
         const data = await response.json();
-        console.log(data.responsemessage); 
-        return data.responsemessage; 
+
+        // Log the response for debugging
+        console.log("Response from server:", data);
+
+        // Return the text property from the server's response
+        return data.text;
     } catch (error) {
-        console.error("Error: ", error);
+        console.error("Error in geminiResponse:", error);
+        return "Sorry, I couldn't process your request.";
     }
 }
 
@@ -132,7 +143,7 @@ function appendMessage(content, sender) {
 
     const messageElement = document.createElement('div');
     messageElement.className = `message ${sender}`;
-    messageElement.textContent = content;
+    messageElement.innerHTML = content;
     messagesContainer.appendChild(messageElement);
     if (sender === 'bot') {
         messageElement.classList.add('fade-in');
