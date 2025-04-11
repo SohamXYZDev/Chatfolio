@@ -40,7 +40,26 @@ function sendMessage() {
             }
             , 2000);
         }
-        // send message
+        geminiResponse(message)
+    }
+}
+
+async function geminiResponse(message) {
+    // send message
+    try {
+        const response = await fetch("http://localhost:3000/generate-tags", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message }),
+        });
+
+        const data = await response.json();
+        console.log(data.responsemessage); 
+        return data.responsemessage; 
+    } catch (error) {
+        console.error("Error: ", error);
     }
 }
 
