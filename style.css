@@ -209,9 +209,8 @@ body {
   animation-duration: 0.6s;
 }
 .image-container {
-  display: flex;
-  width: 105px;
-  height: 105px;
+  max-width: 205px;
+  height: 205px;
 }
 @keyframes zoom {
   from {transform:scale(0)} 
@@ -241,10 +240,31 @@ body {
 
 .image {
   cursor: pointer;
+  margin-right: 2.5px;
   height: 100px;
   width: 100px;
 }
 
+/* fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+.fade-in-longer {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
 
 .nav-btn {
   position: absolute;

@@ -21,14 +21,24 @@ function sendMessage() {
         input.value = ''; 
 
         if (message.toLowerCase() === "show me your work") {
-            appendMessage("Sure! Here's are a few examples of my work:", 'bot');
-            const imageContainer = document.createElement('div');
-            imageContainer.className = 'image-container';
-            imageContainer.classList.add('image-container');
-            appendImage("./assets/past-work/VibeNoteLanding.png" , imageContainer);
-            appendImage("./assets/past-work/BlunderClubLanding.png" , imageContainer);
-            appendImage("./assets/past-work/KryptLanding.png" , imageContainer);
-            appendImage("./assets/past-work/CollabNoteLanding.png" ,  imageContainer);
+            setTimeout(() => {
+                appendMessage("Sure! Here's a few examples of my work:", 'bot');
+            }
+            , 1000);
+            setTimeout(() => {
+                appendMessage("Click on any image to view it in full size.", 'bot');
+            }
+            , 1500);
+            setTimeout(() => {
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'image-container';
+                imageContainer.classList.add('image-container');
+                appendImage("./assets/past-work/VibeNoteLanding.png" , imageContainer);
+                appendImage("./assets/past-work/BlunderClubLanding.png" , imageContainer);
+                appendImage("./assets/past-work/KryptLanding.png" , imageContainer);
+                appendImage("./assets/past-work/CollabNoteLanding.png" ,  imageContainer);
+            }
+            , 2000);
         }
         // send message
     }
@@ -74,29 +84,50 @@ closeBtn.addEventListener('click', function () {
 
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
+const imageCounter = document.getElementById('image-counter');
 const modalContent = document.getElementById('full-image');
 
 prevBtn.addEventListener('click', function () {
     currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length; 
+    imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${imageSources.length}`;
     modalContent.src = imageSources[currentImageIndex];
 });
 
 nextBtn.addEventListener('click', function () {
     currentImageIndex = (currentImageIndex + 1) % imageSources.length; 
+    imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${imageSources.length}`;
     modalContent.src = imageSources[currentImageIndex];
 });
 
 
 
 function appendMessage(content, sender) {
+    
     const messagesContainer = document.getElementById('messages');
     if (messagesContainer.classList.contains('hidden')) {
         messagesContainer.classList.remove('hidden');
     }
+    
+    //fade in animation (in faade-in class)
+    
+
     const messageElement = document.createElement('div');
     messageElement.className = `message ${sender}`;
     messageElement.textContent = content;
     messagesContainer.appendChild(messageElement);
+    if (sender === 'bot') {
+        messageElement.classList.add('fade-in');
+        setTimeout(() => {
+            messageElement.classList.remove('fade-in-longer');
+        }, 1000);
+    } else {
+        messageElement.classList.add('fade-in');
+        setTimeout(() => {
+            messageElement.classList.remove('fade-in');
+        }, 500);
+    }
+
 
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
 }
