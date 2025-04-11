@@ -81,11 +81,6 @@ Chatfolio is an interactive portfolio website that uses a chat interface to show
 3. **Styling**:
    - Modify `style.css` to customize the look and feel of the portfolio.
 
-## Known Issues
-
-- **API Key Error**: Ensure the API key in `.env` is valid and has the necessary permissions.
-- **Image Loading**: Ensure all project images are correctly placed in the `assets/past-work/` directory.
-
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
