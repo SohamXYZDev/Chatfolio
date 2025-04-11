@@ -20,26 +20,26 @@ Chatfolio is an interactive portfolio website that uses a chat interface to show
 ### Steps
 
 1. Clone the repository:
-   ```bash
+```bash
    git clone https://github.com/your-username/chatfolio.git
    cd chatfolio
-   ```
+```
 2. Navigate to the server directory
-  ```bash
+```bash
   cd server
-  ```
+```
 3. Install server dependencies:
-  ```bash
+```bash
   npm install
-  ```
+```
 4. Add your Google Generative AI API key to the .env file in /server/:
-  ```bash
+```bash
   GOOGLE_GENERATIVE_AI_KEY=your_api_key_here
-  ```
+```
 5. Start the server
-  ```bash
+```bash
   node server.js
-  ```
+```
 6. Open index.html in your browser to view the portfolio.
 
 ## Usage
