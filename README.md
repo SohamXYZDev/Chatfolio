@@ -86,5 +86,3 @@ This project is licensed under the MIT License.
 For any questions or feedback, feel free to reach out:
 
 - **Email**: sohamofficial00@gmail.com
-- **GitHub**: [github.com/sohamxyzdev](https://github.com/sohamxyzdev)
-- **LinkedIn**: [linkedin.com/in/sohammitradev](https://linkedin.com/in/sohammitradev)
