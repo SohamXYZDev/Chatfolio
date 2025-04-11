@@ -83,7 +83,7 @@ Chatfolio is an interactive portfolio website that uses a chat interface to show
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License.
 
 ## Contact
 
