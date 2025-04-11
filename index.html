@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ...existing code... -->
+<div id="imageViewer">
+
+</div>
 <div class="card">
   <h1 id="heading">Hello there, let's talk.</h1>
   <div id="messages" class="hidden">
@@ -21,8 +23,13 @@
     </div>
   </div>
 </div>
-<!-- ...existing code... -->
-
+<div id="image-viewer">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="full-image">
+  <button id="prev-btn" class="nav-btn">❮</button>
+  <span id="image-counter" class="image-counter">1 of 4</span>
+  <button id="next-btn" class="nav-btn">❯</button>
+</div>
   <script src="script.js"></script>
 </body>
 </html>
