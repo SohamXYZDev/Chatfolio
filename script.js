@@ -1,6 +1,7 @@
 var isHidden = true;
 // store chatbox history
 var chatHistory = "";
+const imageCounter = document.getElementById('image-counter');
 
 function sendQuick(message) {
     const input = document.getElementById('userInput');
@@ -46,14 +47,33 @@ function sendMessage() {
             response_from_func = geminiResponse(message)
             setTimeout(() => {
                 response_from_func.then((response) => {
-                    appendMessage(response, 'bot'); 
-                    chatHistory += `Soham's Clone: ${response}\n`;
-                    console.log(chatHistory)
+                    // Match all imageInsert(...) calls and remove them from the response
+                    const matches = [...response.matchAll(/attach\((.*?)\)/g)];
+                    
+                    // Remove imageInsert(...) calls from the response
+                    const cleanResponse = response.replace(/attach\((.*?)\)/g, "");
+                
+                    const imageContainer = document.createElement('div');
+                    imageContainer.className = 'image-container';
+                    if (matches.length > 0) {
+                        matches.forEach(match => {
+                            const imageUrl = match[1].replace(/['"]/g, "");
+                            appendImage(imageUrl, imageContainer);
+                        });
+                    }
+                
+                    appendMessage(cleanResponse, 'bot'); 
+                    chatHistory += `Soham's Clone: ${cleanResponse}\n`;
+                    console.log(chatHistory);
                 });
+                
             }, 2000);
         }
     }
 }
+
+var currentImageIndex = 0;
+var currentImageContainer = null;
 
 async function geminiResponse(message) {
     try {
@@ -79,14 +99,6 @@ async function geminiResponse(message) {
     }
 }
 
-let currentImageIndex = 0;
-const imageSources = [
-    "./assets/past-work/VibeNoteLanding.png",
-    "./assets/past-work/BlunderClubLanding.png",
-    "./assets/past-work/KryptLanding.png",
-    "./assets/past-work/CollabNoteLanding.png"
-];
-
 function appendImage(src, imageContainer) {
     const messagesContainer = document.getElementById('messages');
     if (messagesContainer.classList.contains('hidden')) {
@@ -102,9 +114,11 @@ function appendImage(src, imageContainer) {
     const modalContent = document.getElementById('full-image');
 
     imageElement.addEventListener('click', function () {
-        currentImageIndex = imageSources.indexOf(src); 
+        currentImageIndex = Array.prototype.indexOf.call(imageContainer.children, imageElement);
+        currentImageContainer = imageContainer;
         modalContent.src = imageElement.src;
         imageViewer.style.display = 'block';
+        imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${imageContainer.children.length}`;
     });
 
     messagesContainer.appendChild(imageContainer);
@@ -119,19 +133,25 @@ closeBtn.addEventListener('click', function () {
 
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
-const imageCounter = document.getElementById('image-counter');
 const modalContent = document.getElementById('full-image');
 
 prevBtn.addEventListener('click', function () {
-    currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length; 
-    imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${imageSources.length}`;
-    modalContent.src = imageSources[currentImageIndex];
+    // check if index exists
+    if (currentImageContainer.children[currentImageIndex - 1]) { 
+        currentImageIndex--;
+        modalContent.src = currentImageContainer.children[currentImageIndex].src;
+        imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${currentImageContainer.children.length}`;
+    }
 });
 
 nextBtn.addEventListener('click', function () {
-    currentImageIndex = (currentImageIndex + 1) % imageSources.length; 
-    imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${imageSources.length}`;
-    modalContent.src = imageSources[currentImageIndex];
+    // check if index exists
+    if (currentImageContainer.children[currentImageIndex + 1]) { 
+        currentImageIndex++;
+    modalContent.src = currentImageContainer.children[currentImageIndex].src;
+    console.log(modalContent.src)
+    imageCounter.textContent = `${currentImageIndex + 1}` + " of " + `${currentImageContainer.children.length}`;
+    } 
 });
 
 

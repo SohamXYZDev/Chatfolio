@@ -36,6 +36,16 @@ VibeNote (https://devpost.com/software/vibenote): It is an AI-Integrated app. No
 Blunder Club (https://github.com/SohamXYZDev/BlunderClub): An unfinished web app for chess enthusiasts to learn, improve and get insights. It is a web app that provides users with a platform to learn and improve their chess skills. It offers tutorials, puzzles, and analysis tools to help users understand the game better. The app is built using HTML, CSS and JavaScript. It is currently in development and is not yet complete.
 CollabNote (https://github.com/SohamXYZDev/CollabNote): An unfinished web app that was supposed to be an app for students to collaborate on notes. It is a web app that allows users to create and share notes with others. It provides a platform for students to collaborate on projects and share ideas. The app is built using HTML, CSS, JS, NodeJS, and Express. It is currently in development and is not yet complete.
 
+Resources:
+imageSources = [
+    "./assets/past-work/VibeNoteLanding.png",
+    "./assets/past-work/BlunderClubLanding.png",
+    "./assets/past-work/KryptLanding.png",
+    "./assets/past-work/CollabNoteLanding.png"
+];
+Send the respective ASSET link (NOT DEVPOST OR GITHUB LINK) whenever you talk about a specific project, or if the user asks for an image. type "attach(link)" wherever you wanna put that image, replacing "link" with the actual link.
+YOU MUST ALWAYS USE "attach(link)" FOR IMAGES.
+
 Soham's skills: He is a creative developer with a passion for crafting unique digital experiences. He builds innovative projects that often blend design and functionality with cutting-edge web technologies. He is proficient in HTML, CSS, JavaScript, React, NodeJS, Express, and Tailwind CSS. He is also skilled in Python and Java.
 He has a strong understanding of UI/UX design principles and is always looking to learn new skills and technologies. He is a quick learner and is always eager to take on new challenges.
 

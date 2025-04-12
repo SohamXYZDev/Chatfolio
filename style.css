@@ -17,6 +17,7 @@ html{
 h1{
   color: white;
 }
+
 .card{
   margin: 0 auto;
   padding: 2em;
@@ -67,18 +68,31 @@ h1{
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    color: white;
-    background-image: url('./assets/bg.jpg');
-    background-size: cover;
-    background-position: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  color: white;
+
+  background-image: url('./assets/bg.jpg');
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  animation: moveBackground 2s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
   }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 
 
   
@@ -211,6 +225,7 @@ body {
 .image-container {
   max-width: 205px;
   height: 205px;
+  margin-bottom: 10px;
 }
 @keyframes zoom {
   from {transform:scale(0)} 
