@@ -1,4 +1,6 @@
 var isHidden = true;
+// store chatbox history
+var chatHistory = "";
 
 function sendQuick(message) {
     const input = document.getElementById('userInput');
@@ -18,6 +20,7 @@ function sendMessage() {
     const message = input.value.trim();
     if (message) {
         appendMessage(message, 'user'); 
+        chatHistory += `User: ${message}\n`;
         input.value = ''; 
 
         if (message.toLowerCase() === "show me your work") {
@@ -44,6 +47,8 @@ function sendMessage() {
             setTimeout(() => {
                 response_from_func.then((response) => {
                     appendMessage(response, 'bot'); 
+                    chatHistory += `Soham's Clone: ${response}\n`;
+                    console.log(chatHistory)
                 });
             }, 2000);
         }
@@ -57,7 +62,7 @@ async function geminiResponse(message) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ message }),
+            body: JSON.stringify({ message , chatHistory }),
         });
 
         // Parse the JSON response
