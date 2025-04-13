@@ -20,6 +20,7 @@ h1{
 
 .card{
   margin: 0 auto;
+  max-height: 85%;
   padding: 2em;
   width: 400px;
   background: rgb(0, 6, 18);
@@ -76,30 +77,20 @@ body {
   justify-content: center;
   font-weight: 400;
   color: white;
-
+  /* grayish background color */
+  background-color: #000000;
   background-image: url('./assets/bg.jpg');
   background-size: cover;
   background-repeat: repeat-x;
   background-position: 0 50%;
-  animation: moveBackground 2s linear infinite;
 }
-
-@keyframes moveBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
 
 
   
 #heading {
     font-family: "Barlow Light", sans-serif, monospace;
-    margin-bottom: 75px; 
-    margin-top: calc(75px - 32px);
+    margin-top: 30px;
+    margin-bottom: calc(30px + 32px); 
 }
 
 
@@ -154,7 +145,7 @@ body {
 #messages {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: 198.4px; 
+  max-height: 40vh; 
   overflow-y: auto;
   text-align: left;
   padding: 10px;
@@ -226,6 +217,26 @@ body {
   max-width: 205px;
   height: 205px;
   margin-bottom: 10px;
+}
+.pdf-container {
+  cursor: pointer;
+  font-family: "Barlow";
+  margin-bottom: 10px;
+  display: flex;
+}
+.pdf-container a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+.pdf-container a i {
+  margin-left: 8px;
+  font-size: 20px;
 }
 @keyframes zoom {
   from {transform:scale(0)} 

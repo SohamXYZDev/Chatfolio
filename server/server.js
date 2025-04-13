@@ -43,11 +43,98 @@ imageSources = [
     "./assets/past-work/KryptLanding.png",
     "./assets/past-work/CollabNoteLanding.png"
 ];
-Send the respective ASSET link (NOT DEVPOST OR GITHUB LINK) whenever you talk about a specific project, or if the user asks for an image. type "attach(link)" wherever you wanna put that image, replacing "link" with the actual link.
+Send the respective ASSET link (NOT DEVPOST OR GITHUB LINK) whenever you talk about a specific project, or if the user asks for an image. type "attach(link)" wherever you wanna put an image, replacing "link" with the actual link.
 YOU MUST ALWAYS USE "attach(link)" FOR IMAGES.
+Further, when you just write "resumeDownload" it means a resume pdf will be attached automatically.
 
 Soham's skills: He is a creative developer with a passion for crafting unique digital experiences. He builds innovative projects that often blend design and functionality with cutting-edge web technologies. He is proficient in HTML, CSS, JavaScript, React, NodeJS, Express, and Tailwind CSS. He is also skilled in Python and Java.
 He has a strong understanding of UI/UX design principles and is always looking to learn new skills and technologies. He is a quick learner and is always eager to take on new challenges.
+
+Soham's Resume: Soham Mitra
+Aspiring Developer | Web Developer | AI Developer
+Kolkata, West Bengal India sohamofficial00@gmail.com
+sohammitradev SohamXYZDev SohamXYZ
+SKILLS
+Web Development - Expert
+HTML, CSS, JavaScript, Node.js, Express.js, 
+Tailwind CSS, React, Vue, Svelte
+Programming Languages - Expert
+Python, Java, JavaScript, QBasic
+Python Libraries - Expert
+NumPy, Pandas, Matplotlib, OpenCV
+Blockchain Technologies - Amateur
+Cryptocurrency/Web3 Development,
+Various CryptoAPIs, AI Bot Trading
+AI & Generative Models - Expert
+AI Applications, Prompt Engineering,
+OpenAI API, Gemini API, AI-Powered
+Chatbot Development, AI-Powered
+Applications
+Tools & Platforms - Expert
+Git, GitHub, Replit, Google Cloud Console,
+VS Code, Postman
+Databases - Competent
+MongoDB, Firebase, MySQL
+
+PROJECTS
+VibeNote, Journaling with insight — not just entries.
+•★ Hackathon Winning Project ★
+•AI-Based Application
+2025
+•Note-taking apps are everywhere, but none of them truly
+understand how you're feeling. As someone who journals or
+captures thoughts often, emotions matter—they give context.
+We wanted to build a note-taking app that isn’t just functional,
+but empathetic. That’s how VibeNote was born: a simple app
+that detects your mood and helps you improve your mental
+health..
+•VibeNote is a mood-aware note-taking app. Lets users write
+notes or journal entries. Uses Artificial Intelligence to detect the
+emotional tones. Automatically tags each note with a detected
+mood. Creates statistics regarding the user's mood over time.
+Krypt, Simplify crypto portfolio tracking
+•★ Hackathon Winning Project ★
+•Blockchain-Based Application
+2023
+
+•Our inspiration for Krypt came from our passion for
+cryptocurrencies and the need for a user-friendly, data-driven
+solution to manage crypto portfolios. We saw the challenges
+that crypto enthusiasts face when tracking their assets and
+decided to create a tool that simplifies the process.
+•Krypt is a user-friendly crypto portfolio tracker. It allows users to
+effortlessly track and manage their digital assets, offering data
+visualizations, customization, and real-time insights into their
+crypto investments. Whether you're a beginner or a seasoned
+trader, Krypt streamlines portfolio management.
+
+YouthSafeGuard, Protecting Innocence: Safeguarding Our Youth from Harm
+•★ Hackathon Winning Project ★
+•The inspiration behind YouthSafeGuard stems from a collective
+desire to protect the most vulnerable members of our society:
+our youth. Child abuse is a pervasive and deeply troubling issue
+worldwide. It affects countless children and leaves lasting scars.
+2023
+•YouthSafeGuard is a comprehensive platform that serves as a
+beacon of hope and support for those concerned about child
+abuse. It raises awareness about the signs and consequences of
+child abuse. It provides educational materials to help
+individuals recognize and understand child abuse and its
+various forms.
+
+LANGUAGES
+English
+Spanish
+Bengali
+Hindi
+
+CERTIFICATES
+Certificate of Honorable
+Achievement
+Certificate awarded to my
+project submitted in the
+"EQ Hacks Equitable
+Elevation II Hackathon "
 
 Entire Chat History: "${chatHistory}"
 This is the user's last message: "${message}"

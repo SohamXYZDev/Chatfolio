@@ -1,3 +1,5 @@
+const resumePath = "./assets/resume.pdf";
+
 var isHidden = true;
 // store chatbox history
 var chatHistory = "";
@@ -51,7 +53,7 @@ function sendMessage() {
                     const matches = [...response.matchAll(/attach\((.*?)\)/g)];
                     
                     // Remove imageInsert(...) calls from the response
-                    const cleanResponse = response.replace(/attach\((.*?)\)/g, "");
+                    var cleanResponse = response.replace(/attach\((.*?)\)/g, "");
                 
                     const imageContainer = document.createElement('div');
                     imageContainer.className = 'image-container';
@@ -62,10 +64,20 @@ function sendMessage() {
                         });
                     }
                 
+                    const resumeContainer = document.createElement('div');
+                    resumeContainer.className = 'pdf-container';
+                    if (response.includes("resumeDownload")) {
+                        appendResume(resumePath, resumeContainer);
+                        cleanResponse = response.replace("resumeDownload","")
+                    }
+
                     appendMessage(cleanResponse, 'bot'); 
                     chatHistory += `Soham's Clone: ${cleanResponse}\n`;
                     console.log(chatHistory);
-                });
+                
+                
+                }
+            );
                 
             }, 2000);
         }
@@ -97,6 +109,30 @@ async function geminiResponse(message) {
         console.error("Error in geminiResponse:", error);
         return "Sorry, I couldn't process your request.";
     }
+}
+
+function appendResume(src, resumeContainer) {
+    const messagesContainer = document.getElementById('messages');
+    if (messagesContainer.classList.contains('hidden')) {
+        messagesContainer.classList.remove('hidden');
+    }
+
+    const resumeElement = document.createElement('a');
+    resumeElement.href = src;
+    resumeElement.target = "_blank"; // Open in new tab
+    resumeElement.className = 'resume';
+    const resumeLabel = document.createElement('p');
+    resumeLabel.textContent = "View resume.pdf";
+    const resumeIcon = document.createElement('i');
+    resumeIcon.className = 'fas fa-file-pdf';
+    resumeIcon.style.color = "white";
+
+    resumeContainer.appendChild(resumeElement)
+    resumeElement.appendChild(resumeLabel)
+    resumeElement.appendChild(resumeIcon);
+    
+    messagesContainer.appendChild(resumeContainer);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 function appendImage(src, imageContainer) {
