@@ -67,7 +67,11 @@ h1{
     --angle: 360deg;
   }
 }
-
+textarea, input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -94,10 +98,27 @@ body {
 }
 
 
+.input-cont {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+.input-cont button {
+  font-family: "Barlow", sans-serif, monospace;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
   
   .card input {
     font-family: "Barlow", sans-serif, monospace;
-    width: 95%;
+    width: 90%;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: transparent;
     padding: 12px;

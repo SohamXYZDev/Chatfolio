@@ -222,3 +222,39 @@ function appendMessage(content, sender) {
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
     
 }
+
+// Speech-to-Text (Web Speech API)
+const micButton = document.getElementById('micButton');
+const userInput = document.getElementById('userInput');
+
+let recognition;
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.interimResults = false; 
+  recognition.maxAlternatives = 1;
+
+  micButton.addEventListener('click', () => {
+    recognition.start();
+    micButton.classList.add('listening'); 
+  });
+
+  recognition.addEventListener('result', (event) => {
+    const transcript = event.results[0][0].transcript; 
+    userInput.value = transcript;
+    sendMessage(); 
+  });
+
+  recognition.addEventListener('end', () => {
+    micButton.classList.remove('listening');
+  });
+
+  recognition.addEventListener('error', (event) => {
+    console.error('Speech recognition error:', event.error);
+    micButton.classList.remove('listening');
+  });
+} else {
+  console.warn('SpeechRecognition is not supported in this browser.');
+  micButton.style.display = 'none'; 
+}

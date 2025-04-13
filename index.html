@@ -23,7 +23,12 @@
     </div>
   </div>
   <div id="input-field">
-    <input type="text" placeholder="Type a message..." id="userInput">
+    <div class="input-cont">
+      <input type="text" placeholder="Type a message..." id="userInput">
+      <button id="micButton" title="Click to speak">
+        <i class="fas fa-microphone"></i>
+      </button>
+      </div>
     <div class="button-row">
       <button onclick="sendQuick('What are you?')">What are you?</button>
       <button onclick="sendQuick('Show me your work')">Show me your work</button>
