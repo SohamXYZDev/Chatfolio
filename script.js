@@ -5,6 +5,12 @@ var isHidden = true;
 var chatHistory = "";
 const imageCounter = document.getElementById('image-counter');
 
+const calmingMusic = document.getElementById("calmingMusic")
+// play music on load
+window.addEventListener('load', function() {
+    calmingMusic.play();
+});
+
 function sendQuick(message) {
     const input = document.getElementById('userInput');
     input.value = message;
@@ -68,7 +74,25 @@ function sendMessage() {
                     resumeContainer.className = 'pdf-container';
                     if (response.includes("resumeDownload")) {
                         appendResume(resumePath, resumeContainer);
-                        cleanResponse = response.replace("resumeDownload","")
+                        cleanResponse = cleanResponse.replace("resumeDownload","")
+                    }
+                    if (response.includes("stopMusic")){
+                        calmingMusic.pause();
+                        cleanResponse = response.replace("stopMusic","")
+                    } else if (response.includes("playMusic")){
+                        calmingMusic.play();
+                        cleanResponse = cleanResponse.replace("playMusic","")
+                    }
+                    if (response.includes("changeVolume(")) {
+                        const volumeMatch = response.match(/changeVolume\((.*?)\)/);
+                        if (volumeMatch && volumeMatch[1]) {
+                            const volumeValue = parseFloat(volumeMatch[1]);
+                            if (volumeValue >= 0 && volumeValue <= 1) {
+                                calmingMusic.volume = volumeValue; // Set the volume
+                                console.log(`Volume changed to: ${volumeValue}`);
+                            } 
+                        }
+                        cleanResponse = cleanResponse.replace(/changeVolume\((.*?)\)/, "");
                     }
 
                     appendMessage(cleanResponse, 'bot'); 
