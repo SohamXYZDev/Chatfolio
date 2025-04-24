@@ -32,7 +32,7 @@ Chatfolio is an interactive portfolio website that uses a chat interface to show
 ```bash
   npm install
 ```
-4. Add your Google Generative AI API key to the .env file in /server/:
+4. Add your Google Generative AI API key to a .env file in /server/:
 ```bash
   GOOGLE_GENERATIVE_AI_KEY=your_api_key_here
 ```
