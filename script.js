@@ -1,6 +1,6 @@
 const resumePath = "./assets/resume.pdf";
-let apiUrl = "https://chatfolio-lt9b.onrender.com/";
-let fallbackApiUrl = "http://localhost:3000/"
+let apiUrl = "https://chatfolio-lt9b.onrender.com";
+let fallbackApiUrl = "http://localhost:3000"
 var isHidden = true;
 // store chatbox history
 var chatHistory = "";
@@ -114,7 +114,7 @@ var currentImageContainer = null;
 
 async function checkApiAvailability(url) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(url+"generate-tags");
         return response.ok; // Returns true if response is successful
     } catch (error) {
         console.error('API check failed:', error);
@@ -124,7 +124,7 @@ async function checkApiAvailability(url) {
 
 async function geminiResponse(message) {
     try {
-        const url = await checkApiAvailability(apiUrl) ? apiUrl : fallbackApiUrl;
+        const url = await checkApiAvailability(apiUrl) ? fallbackApiUrl : apiUrl;
         console.log(url)
         const response = await fetch(`${url}/generate-tags`, {
             method: "POST",
