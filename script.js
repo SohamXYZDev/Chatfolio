@@ -1,4 +1,5 @@
 const resumePath = "./assets/resume.pdf";
+let apiUrl = "https://chatfolio-lt9b.onrender.com/" || "http://localhost:3000/";
 
 var isHidden = true;
 // store chatbox history
@@ -113,7 +114,9 @@ var currentImageContainer = null;
 
 async function geminiResponse(message) {
     try {
-        const response = await fetch("http://localhost:3000/generate-tags", {
+        const url = await checkApiAvailability(apiUrl) ? fallbackApiUrl : apiUrl;
+        console.log(url)
+        const response = await fetch(`${url}/generate-tags`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
